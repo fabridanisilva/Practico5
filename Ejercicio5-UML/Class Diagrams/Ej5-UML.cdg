@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Ej5-UML">
+  <ClassDiagramComponents>
+    <Class name="Directorio" package="" visibility="public" xPosition="522.0" yPosition="20.0">
+      <Fields>
+        <Field name="telefono" type="TreeMap" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="agregarContacto" returnType="void" visibility="public"/>
+        <Method name="buscarContacto" returnType="void" visibility="public"/>
+        <Method name="buscarTelefono" returnType="void" visibility="public"/>
+        <Method name="buscarContactos" returnType="void" visibility="public"/>
+        <Method name="borrarContactos" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Contactos" package="" visibility="public" xPosition="376.0" yPosition="297.0">
+      <Fields>
+        <Field name="dni" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="ciudad" type="String" visibility="private"/>
+        <Field name="direccion" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="Contactos" returnType="ctro" visibility="public">
+          <Argument type="int" name="dni"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="String" name="ciudad"/>
+          <Argument type="String" name="direccion"/>
+        </Method>
+        <Method name="dni" returnType="get" visibility="public"/>
+        <Method name="dni" returnType="set" visibility="public">
+          <Argument type="int" name="dni"/>
+        </Method>
+        <Method name="nombre" returnType="get" visibility="public"/>
+        <Method name="nombre" returnType="set" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="apellido" returnType="get" visibility="public"/>
+        <Method name="apellido" returnType="set" visibility="public">
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="ciudad" returnType="get" visibility="public"/>
+        <Method name="ciudad" returnType="set" visibility="public">
+          <Argument type="String" name="ciudad"/>
+        </Method>
+        <Method name="direccion" returnType="get" visibility="public"/>
+        <Method name="direccion" returnType="set" visibility="public">
+          <Argument type="String" name="direccion"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="." source="Directorio" target="Contactos" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
