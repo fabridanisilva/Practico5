@@ -7,7 +7,9 @@ package GUI;
 import Directorio.Contacto;
 import Directorio.DirectorioTelefonico;
 import java.util.ArrayList;
+import java.util.TreeMap;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,15 +18,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class AgregarCliente extends javax.swing.JInternalFrame {
     private Contacto contacto;
-    private DirectorioTelefonico dirTelefonico;
+    TreeMap<Long,Contacto> registro = new TreeMap<>();
     private DefaultTableModel modelo;
     private ArrayList<String> ciudades;
     /**
      * Creates new form AgregarCliente
      */
-    public AgregarCliente(ArrayList<String> ciudades) {
+    public AgregarCliente(ArrayList<String> ciudades,TreeMap<Long,Contacto> registro) {
         initComponents();
-        dirTelefonico = new DirectorioTelefonico();
+        this.registro = registro;
         this.ciudades = ciudades;
         modelo = new DefaultTableModel();
         
@@ -93,6 +95,11 @@ public class AgregarCliente extends javax.swing.JInternalFrame {
 
         jLApellido.setText("Apellido:");
 
+        jtfDNI.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtfDNIFocusLost(evt);
+            }
+        });
         jtfDNI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtfDNIActionPerformed(evt);
@@ -178,6 +185,12 @@ public class AgregarCliente extends javax.swing.JInternalFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel2.setText("Telefono:");
+
+        jtfTelefono.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtfTelefonoFocusLost(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -272,13 +285,34 @@ public class AgregarCliente extends javax.swing.JInternalFrame {
        contacto = new Contacto(dni,nombre,apellido,ciudad,domicilio);
        
        
-       dirTelefonico.agregarContacto(numero, contacto);
+       registro.put(numero, contacto);
+       
        jtfNombre.setText("");
        jtfDNI.setText("");
        jtfApellido.setText("");
        jtfDomicilio.setText("");
        jtfTelefono.setText("");
+       
+       JOptionPane.showMessageDialog(this, "Se ingreso Correctamente");
     }//GEN-LAST:event_jbGuardarActionPerformed
+
+    private void jtfTelefonoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfTelefonoFocusLost
+        // TODO add your handling code here:
+        try{
+            Long numero = Long.parseLong(jtfTelefono.getText());
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(this, "debes ingresar un numero telefonico");
+        }
+    }//GEN-LAST:event_jtfTelefonoFocusLost
+
+    private void jtfDNIFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfDNIFocusLost
+        // TODO add your handling code here:
+        try{
+            double dni = Long.parseLong(jtfDNI.getText());
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(this, "debes ingresar EL DNI");
+        }
+    }//GEN-LAST:event_jtfDNIFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

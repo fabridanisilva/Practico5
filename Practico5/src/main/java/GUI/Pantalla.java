@@ -1,6 +1,8 @@
 package GUI;
 
+import Directorio.Contacto;
 import java.util.ArrayList;
+import java.util.TreeMap;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -13,6 +15,7 @@ import java.util.ArrayList;
  */
 public class Pantalla extends javax.swing.JFrame {
     private static ArrayList<String> ciudad = new ArrayList<>();
+    private static TreeMap<Long,Contacto> registro = new TreeMap<>();
     /**
      * Creates new form Pantalla
      */
@@ -153,7 +156,7 @@ public class Pantalla extends javax.swing.JFrame {
 
     private void jmAgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAgregarClienteActionPerformed
         // TODO add your handling code here:
-        AgregarCliente agCliente = new AgregarCliente(Pantalla.ciudad);
+        AgregarCliente agCliente = new AgregarCliente(Pantalla.ciudad,Pantalla.registro);
         jdpPantalla.add(agCliente);
         agCliente.setVisible(true);
     }//GEN-LAST:event_jmAgregarClienteActionPerformed
@@ -194,7 +197,7 @@ public class Pantalla extends javax.swing.JFrame {
     private void jmBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmBuscarClienteActionPerformed
         // TODO add your handling code here:
         
-        BuscarCliente bCliente = new BuscarCliente();
+        BuscarCliente bCliente = new BuscarCliente(Pantalla.registro);
         jdpPantalla.add(bCliente);
         bCliente.setVisible(true);
         

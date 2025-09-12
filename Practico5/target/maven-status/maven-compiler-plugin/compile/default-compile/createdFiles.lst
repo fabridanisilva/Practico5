@@ -12,6 +12,7 @@ GUI\Pantalla$7.class
 GUI\BorrarCliente.class
 GUI\AgregarCliente$5.class
 GUI\BuscarClienteporCiudad.class
+GUI\AgregarCliente$8.class
 GUI\AgregarCiudad$3.class
 GUI\BuscarCliente$2.class
 GUI\BorrarCliente$2.class
@@ -37,4 +38,5 @@ GUI\BuscarCliente.class
 GUI\BuscarCliente$1.class
 GUI\Pantalla$1.class
 GUI\AgregarCiudad.class
+GUI\AgregarCliente$7.class
 GUI\BorrarCliente$3.class
