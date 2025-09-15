@@ -23,6 +23,7 @@ GUI\AgregarCliente$6.class
 GUI\Pantalla$6.class
 GUI\Pantalla$8.class
 Directorio\Main.class
+GUI\BuscarClientePorTelefono$3.class
 GUI\BuscarClientePorTelefono.class
 GUI\AgregarCliente$1.class
 GUI\Pantalla$3.class
