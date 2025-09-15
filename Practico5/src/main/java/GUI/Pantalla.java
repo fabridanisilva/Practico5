@@ -62,7 +62,7 @@ public class Pantalla extends javax.swing.JFrame {
 
         jMenu1.setText("Clientes");
 
-        jmAgregarCliente.setText("agregar cliente");
+        jmAgregarCliente.setText("Agregar Cliente");
         jmAgregarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmAgregarClienteActionPerformed(evt);
@@ -70,7 +70,7 @@ public class Pantalla extends javax.swing.JFrame {
         });
         jMenu1.add(jmAgregarCliente);
 
-        jmBuscarCliente.setText("buscar cliente");
+        jmBuscarCliente.setText("Buscar Cliente");
         jmBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmBuscarClienteActionPerformed(evt);
@@ -78,7 +78,7 @@ public class Pantalla extends javax.swing.JFrame {
         });
         jMenu1.add(jmBuscarCliente);
 
-        jmBorrarCliente.setText("borrar cliente");
+        jmBorrarCliente.setText("Borrar Cliente");
         jmBorrarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmBorrarClienteActionPerformed(evt);
@@ -90,7 +90,7 @@ public class Pantalla extends javax.swing.JFrame {
 
         jmDirectorio.setText("Directorio");
 
-        jmBuscarClientesCiudad.setText("buscar clientes por ciudad");
+        jmBuscarClientesCiudad.setText("Buscar Clientes por Ciudad");
         jmBuscarClientesCiudad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmBuscarClientesCiudadActionPerformed(evt);
@@ -98,7 +98,7 @@ public class Pantalla extends javax.swing.JFrame {
         });
         jmDirectorio.add(jmBuscarClientesCiudad);
 
-        jmBuscarTelefonoApellido.setText("buscar telefono por apellido");
+        jmBuscarTelefonoApellido.setText("Buscar Telefono por Apellido");
         jmBuscarTelefonoApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmBuscarTelefonoApellidoActionPerformed(evt);
@@ -110,7 +110,7 @@ public class Pantalla extends javax.swing.JFrame {
 
         jMenu3.setText("Ciudades");
 
-        jmAgregarCiudad.setText("agregar ciudad");
+        jmAgregarCiudad.setText("Agregar Ciudad");
         jmAgregarCiudad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmAgregarCiudadActionPerformed(evt);
@@ -122,7 +122,7 @@ public class Pantalla extends javax.swing.JFrame {
 
         jMenu4.setText("Salir");
 
-        jmSalir.setText("salir");
+        jmSalir.setText("Salir");
         jmSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmSalirActionPerformed(evt);

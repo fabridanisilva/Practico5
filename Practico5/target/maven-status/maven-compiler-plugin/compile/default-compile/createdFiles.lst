@@ -16,7 +16,6 @@ GUI\AgregarCliente$8.class
 GUI\AgregarCiudad$3.class
 GUI\BuscarCliente$2.class
 GUI\BorrarCliente$2.class
-GUI\BuscarTelefonoporApellido$2.class
 GUI\AgregarCiudad$1.class
 GUI\AgregarCliente$3.class
 GUI\Pantalla$5.class
