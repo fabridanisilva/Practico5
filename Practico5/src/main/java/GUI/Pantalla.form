@@ -11,7 +11,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jmAgregarCliente">
               <Properties>
-                <Property name="text" type="java.lang.String" value="agregar cliente"/>
+                <Property name="text" type="java.lang.String" value="Agregar Cliente"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmAgregarClienteActionPerformed"/>
@@ -19,7 +19,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jmBuscarCliente">
               <Properties>
-                <Property name="text" type="java.lang.String" value="buscar cliente"/>
+                <Property name="text" type="java.lang.String" value="Buscar Cliente"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmBuscarClienteActionPerformed"/>
@@ -27,7 +27,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jmBorrarCliente">
               <Properties>
-                <Property name="text" type="java.lang.String" value="borrar cliente"/>
+                <Property name="text" type="java.lang.String" value="Borrar Cliente"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmBorrarClienteActionPerformed"/>
@@ -42,7 +42,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jmBuscarClientesCiudad">
               <Properties>
-                <Property name="text" type="java.lang.String" value="buscar clientes por ciudad"/>
+                <Property name="text" type="java.lang.String" value="Buscar Clientes por Ciudad"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmBuscarClientesCiudadActionPerformed"/>
@@ -50,7 +50,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jmBuscarTelefonoApellido">
               <Properties>
-                <Property name="text" type="java.lang.String" value="buscar telefono por apellido"/>
+                <Property name="text" type="java.lang.String" value="Buscar Telefono por Apellido"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmBuscarTelefonoApellidoActionPerformed"/>
@@ -65,7 +65,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jmAgregarCiudad">
               <Properties>
-                <Property name="text" type="java.lang.String" value="agregar ciudad"/>
+                <Property name="text" type="java.lang.String" value="Agregar Ciudad"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmAgregarCiudadActionPerformed"/>
@@ -80,7 +80,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jmSalir">
               <Properties>
-                <Property name="text" type="java.lang.String" value="salir"/>
+                <Property name="text" type="java.lang.String" value="Salir"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmSalirActionPerformed"/>
