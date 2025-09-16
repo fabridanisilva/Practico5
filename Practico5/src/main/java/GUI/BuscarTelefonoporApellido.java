@@ -28,7 +28,7 @@ public class BuscarTelefonoporApellido extends javax.swing.JInternalFrame {
          modelo = new DefaultListModel<>();
          jLista.setModel(modelo);
          armarCabecera();
-        
+        jbVerDatos.setEnabled(false);
         
         
     }
@@ -51,7 +51,7 @@ public class BuscarTelefonoporApellido extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         jtApellido = new javax.swing.JTextField();
         jbCargar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jbVerDatos = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         jLabel1.setText("BUSCAR TELEFONO POR APELLIDO");
@@ -88,10 +88,10 @@ public class BuscarTelefonoporApellido extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton2.setText("Ver Datos");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jbVerDatos.setText("Ver Datos");
+        jbVerDatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jbVerDatosActionPerformed(evt);
             }
         });
 
@@ -105,32 +105,31 @@ public class BuscarTelefonoporApellido extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(jbVerDatos)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jbCargar))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane2)
-                        .addComponent(jtApellido)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jtApellido, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 272, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 604, Short.MAX_VALUE)
                         .addComponent(jButton1)
                         .addGap(58, 58, 58))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addContainerGap())))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(233, 233, 233)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(33, 33, 33)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -144,7 +143,7 @@ public class BuscarTelefonoporApellido extends javax.swing.JInternalFrame {
                     .addComponent(jButton1)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jbCargar)
-                        .addComponent(jButton2)))
+                        .addComponent(jbVerDatos)))
                 .addGap(22, 22, 22))
         );
 
@@ -157,18 +156,7 @@ public class BuscarTelefonoporApellido extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jbCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCargarActionPerformed
-        /** TODO add your handling code here:
-        String apellido = jLista.getSelectedValue();
-        jtApellido.setText(apellido);
-        
-        for (Map.Entry<Long, Contacto> entry : registro.entrySet()) {
-            Long key = entry.getKey();
-            Contacto val = entry.getValue();
-            if (val.getApellido().equalsIgnoreCase(apellido)) {
-                cargarDatos(val,key);
-            }
-        }
-**/        
+             
         String apellido = jtApellido.getText();
         
         modelo.removeAllElements();
@@ -182,9 +170,10 @@ public class BuscarTelefonoporApellido extends javax.swing.JInternalFrame {
             
             
         }
+        jbVerDatos.setEnabled(true);
     }//GEN-LAST:event_jbCargarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jbVerDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVerDatosActionPerformed
         // TODO add your handling code here:
         
         String apellido = jLista.getSelectedValue();
@@ -198,7 +187,7 @@ public class BuscarTelefonoporApellido extends javax.swing.JInternalFrame {
             }
         }
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jbVerDatosActionPerformed
 
 
     //metodos
@@ -223,13 +212,13 @@ public class BuscarTelefonoporApellido extends javax.swing.JInternalFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JList<String> jLista;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton jbCargar;
+    private javax.swing.JButton jbVerDatos;
     private javax.swing.JTextField jtApellido;
     private javax.swing.JTable jtBuscarPorTelefono;
     // End of variables declaration//GEN-END:variables

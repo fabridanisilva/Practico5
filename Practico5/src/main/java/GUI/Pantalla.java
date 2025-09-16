@@ -173,7 +173,7 @@ public class Pantalla extends javax.swing.JFrame {
     private void jmBuscarClientesCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmBuscarClientesCiudadActionPerformed
         // TODO add your handling code here:
         
-        BuscarClienteporCiudad bcpCiudad = new BuscarClienteporCiudad();
+        BuscarClienteporCiudad bcpCiudad = new BuscarClienteporCiudad(Pantalla.ciudad,Pantalla.registro);
         jdpPantalla.add(bcpCiudad);
         bcpCiudad.setVisible(true);
         
