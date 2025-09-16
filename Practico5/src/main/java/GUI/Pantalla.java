@@ -182,7 +182,7 @@ public class Pantalla extends javax.swing.JFrame {
     private void jmBuscarTelefonoApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmBuscarTelefonoApellidoActionPerformed
         // TODO add your handling code here:
         
-        BuscarTelefonoporApellido btpApellido = new BuscarTelefonoporApellido();
+        BuscarTelefonoporApellido btpApellido = new BuscarTelefonoporApellido(Pantalla.registro);
         jdpPantalla.add(btpApellido);
         btpApellido.setVisible(true);
     }//GEN-LAST:event_jmBuscarTelefonoApellidoActionPerformed

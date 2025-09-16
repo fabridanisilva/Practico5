@@ -1,5 +1,6 @@
 Directorio\DirectorioTelefonico.class
 GUI\AgregarCliente.class
+GUI\BuscarTelefonoporApellido$3.class
 Directorio\Contacto.class
 GUI\BuscarTelefonoporApellido.class
 GUI\BuscarTelefonoporApellido$1.class
@@ -14,6 +15,7 @@ GUI\AgregarCliente$8.class
 GUI\BuscarClientePorTelefono$2.class
 GUI\AgregarCiudad$3.class
 GUI\BorrarCliente$2.class
+GUI\BuscarTelefonoporApellido$2.class
 GUI\AgregarCiudad$1.class
 GUI\AgregarCliente$3.class
 GUI\Pantalla$5.class
