@@ -4,17 +4,44 @@
  */
 package GUI;
 
+import Directorio.Contacto;
+import java.util.Map;
+import java.util.TreeMap;
+import javax.swing.DefaultListModel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author arias
  */
 public class BorrarCliente extends javax.swing.JInternalFrame {
 
+    TreeMap<Long, Contacto> registro = new TreeMap<>();
+    DefaultListModel modelo;
+
     /**
      * Creates new form BorrarCliente
      */
-    public BorrarCliente() {
+    public BorrarCliente(TreeMap<Long, Contacto> registro) {
+
         initComponents();
+        this.registro = registro;
+        
+        
+        DefaultTableModel modeloT = new DefaultTableModel();
+        modeloT.setColumnIdentifiers(new String[]{"DNI", "Apellido", "Nombre", "Direccion", "Ciudad", "Teléfono"});
+        jTable1.setModel(modeloT);
+        
+        modelo = new DefaultListModel<>();
+        jList1.setModel(modelo);
+        modelo.removeAllElements();
+        for (Map.Entry<Long, Contacto> entry : registro.entrySet()) {
+            Long key = entry.getKey();
+            Contacto val = entry.getValue();
+
+            modelo.addElement(key);
+
+        }
     }
 
     /**
@@ -35,6 +62,7 @@ public class BorrarCliente extends javax.swing.JInternalFrame {
         jList1 = new javax.swing.JList<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("BORRAR CLIENTE");
@@ -64,6 +92,11 @@ public class BorrarCliente extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(jList1);
 
         jButton1.setText("Borrar cliente/s");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Salir");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -72,31 +105,41 @@ public class BorrarCliente extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton3.setText("Seleccionar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
+                .addGap(216, 216, 216)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(4, 4, 4)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2)
-                    .addComponent(jTextField1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton3)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2)
+                            .addComponent(jTextField1))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(216, 216, 216)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,7 +155,9 @@ public class BorrarCliente extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
@@ -131,13 +176,37 @@ public class BorrarCliente extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Long numero = jList1.getSelectedValue();
+        jTextField1.setText("" + registro.get(numero).getDni());
+        DefaultTableModel modeloT = (DefaultTableModel) jTable1.getModel();
+        modeloT.setColumnIdentifiers(new String[]{"DNI", "Apellido", "Nombre", "Direccion", "Ciudad", "Teléfono"});
+        jTable1.setModel(modeloT);
+        
+ 
+        
+        
+        modeloT.addRow(new Object[]{registro.get(numero).getDni(), registro.get(numero).getApellido(), registro.get(numero).getNombre(), registro.get(numero).getDireccion(),registro.get(numero).getCiudad(),numero});
+        modelo.removeElement(numero);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        for(int i = 0;i < jTable1.getRowCount();i++){
+            registro.remove(jTable1.getValueAt(i,5));
+            
+        }
+        DefaultTableModel modeloT = (DefaultTableModel) jTable1.getModel();
+        modeloT.setRowCount(0);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JList<String> jList1;
+    private javax.swing.JList<Long> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;

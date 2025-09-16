@@ -164,7 +164,7 @@ public class Pantalla extends javax.swing.JFrame {
     private void jmBorrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmBorrarClienteActionPerformed
         // TODO add your handling code here:
         
-        BorrarCliente bCliente = new BorrarCliente();
+        BorrarCliente bCliente = new BorrarCliente(registro);
         jdpPantalla.add(bCliente);
         bCliente.setVisible(true);
         
