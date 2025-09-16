@@ -4,17 +4,33 @@
  */
 package GUI;
 
+import Directorio.Contacto;
+import java.util.Map;
+import java.util.TreeMap;
+import javax.swing.DefaultListModel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author arias
  */
 public class BuscarTelefonoporApellido extends javax.swing.JInternalFrame {
-
+    TreeMap<Long,Contacto> registro = new TreeMap<>();
+    DefaultListModel modelo;
+    private DefaultTableModel model;
     /**
      * Creates new form BuscarTelefonoporApellido
      */
-    public BuscarTelefonoporApellido() {
+    public BuscarTelefonoporApellido(TreeMap<Long,Contacto> registro) {
         initComponents();
+         this.registro = registro;
+         model = new DefaultTableModel();
+         modelo = new DefaultListModel<>();
+         jLista.setModel(modelo);
+         armarCabecera();
+        jbVerDatos.setEnabled(false);
+        
+        
     }
 
     /**
@@ -31,9 +47,11 @@ public class BuscarTelefonoporApellido extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtBuscarPorTelefono = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jLista = new javax.swing.JList<>();
         jButton1 = new javax.swing.JButton();
         jtApellido = new javax.swing.JTextField();
+        jbCargar = new javax.swing.JButton();
+        jbVerDatos = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         jLabel1.setText("BUSCAR TELEFONO POR APELLIDO");
@@ -49,17 +67,31 @@ public class BuscarTelefonoporApellido extends javax.swing.JInternalFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6"
+                "DNI", "Nombre", "Apellido", "Ciudad", "Domicilio", "Numero"
             }
         ));
         jScrollPane1.setViewportView(jtBuscarPorTelefono);
 
-        jScrollPane2.setViewportView(jList1);
+        jScrollPane2.setViewportView(jLista);
 
         jButton1.setText("Salir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jbCargar.setText("Cargar");
+        jbCargar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCargarActionPerformed(evt);
+            }
+        });
+
+        jbVerDatos.setText("Ver Datos");
+        jbVerDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbVerDatosActionPerformed(evt);
             }
         });
 
@@ -71,28 +103,33 @@ public class BuscarTelefonoporApellido extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2)
-                    .addComponent(jtApellido))
-                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jbVerDatos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbCargar))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jtApellido, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addContainerGap(99, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 604, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(58, 58, 58))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jButton1)))
-                        .addGap(58, 58, 58))))
+                                .addComponent(jLabel1)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(33, 33, 33)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -102,7 +139,11 @@ public class BuscarTelefonoporApellido extends javax.swing.JInternalFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jbCargar)
+                        .addComponent(jbVerDatos)))
                 .addGap(22, 22, 22))
         );
 
@@ -114,14 +155,70 @@ public class BuscarTelefonoporApellido extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jbCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCargarActionPerformed
+             
+        String apellido = jtApellido.getText();
+        
+        modelo.removeAllElements();
+        for (Map.Entry<Long, Contacto> entry : registro.entrySet()) {
+            Long key = entry.getKey();
+            Contacto val = entry.getValue();
+            
+            if (val.getApellido().equalsIgnoreCase(apellido)) {
+                modelo.addElement(val.getApellido());
+            }
+            
+            
+        }
+        jbVerDatos.setEnabled(true);
+    }//GEN-LAST:event_jbCargarActionPerformed
 
+    private void jbVerDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVerDatosActionPerformed
+        // TODO add your handling code here:
+        
+        String apellido = jLista.getSelectedValue();
+        jtApellido.setText(apellido);
+        
+        for (Map.Entry<Long, Contacto> entry : registro.entrySet()) {
+            Long key = entry.getKey();
+            Contacto val = entry.getValue();
+            if (val.getApellido().equalsIgnoreCase(apellido)) {
+                cargarDatos(val,key);
+            }
+        }
+        
+    }//GEN-LAST:event_jbVerDatosActionPerformed
+
+
+    //metodos
+    
+        private void armarCabecera(){
+    
+        model.addColumn("dni");
+        model.addColumn("Nombre");
+        model.addColumn("Apellido");
+        model.addColumn("Ciudad");
+        model.addColumn("Domicilio");
+        model.addColumn("Numero");
+        jtBuscarPorTelefono.setModel(model);
+    
+    }
+        private void cargarDatos(Contacto contacto,Long numero){
+            
+            model.addRow(new Object[]{contacto.getDni(),contacto.getNombre(),contacto.getApellido(),contacto.getCiudad(),contacto.getDireccion(),numero});
+        
+        }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JList<String> jList1;
+    private javax.swing.JList<String> jLista;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton jbCargar;
+    private javax.swing.JButton jbVerDatos;
     private javax.swing.JTextField jtApellido;
     private javax.swing.JTable jtBuscarPorTelefono;
     // End of variables declaration//GEN-END:variables
